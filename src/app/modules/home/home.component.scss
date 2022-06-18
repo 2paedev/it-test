@@ -1,0 +1,15 @@
+@import 'helpers/mixins';
+
+.home {
+  @include flexbox-align-direction(center, center, column);
+
+  margin-top: 3rem;
+
+  &__title {
+    color: blue;
+  }
+
+  &__info {
+    @include flexbox-align-direction(center, center, column);
+  }
+}

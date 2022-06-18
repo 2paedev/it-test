@@ -1,0 +1,15 @@
+<section class="admin">
+  <mat-card class="admin__info">
+    <mat-card-title class="admin__title">Admin</mat-card-title>
+
+    <mat-card-content>
+      <p>This page can be accessed <u>only by administrators</u>.</p>
+      <p>All users from secure (admin only) api end point:</p>
+      <ul *ngIf="users">
+        <li *ngFor="let user of users">
+          {{ user.firstName }} {{ user.lastName }}
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</section>

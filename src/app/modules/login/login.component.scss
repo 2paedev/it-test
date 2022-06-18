@@ -1,0 +1,22 @@
+@import 'helpers/mixins';
+
+.login {
+  @include flexbox-align-direction(center, center, column);
+
+  &__info {
+    margin-bottom: 1rem;
+  }
+
+  &__logo {
+    width: 10rem;
+    margin-bottom: 1rem;
+  }
+
+  &__form {
+    @include flexbox-align-direction(center, center, column);
+
+    button {
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<section class="home">
+  <mat-card class="home__info">
+    <mat-card-title class="home__title">Home</mat-card-title>
+    <mat-card-subtitle>
+      Your role is: <strong> {{ user.role }} </strong> .
+    </mat-card-subtitle>
+    <mat-card-content>
+      <p>This page can be accessed by <u>all authenticated users</u>.</p>
+      <p>Current user from secure api end point:</p>
+      <ul *ngIf="userFromApi">
+        <li>{{ userFromApi.firstName }} {{ userFromApi.lastName }}</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</section>
