@@ -1,0 +1,71 @@
+<section class="special">
+  <mat-card class="special__info">
+    <mat-card-title class="special__title">Special</mat-card-title>
+    <mat-card-subtitle>
+      Your role is: <strong> {{ user.role }} </strong> .
+    </mat-card-subtitle>
+    <mat-card-content>
+      <p>This page can be accessed by <u>all authenticated users</u>.</p>
+      <p>Current user from secure api end point:</p>
+      <ul *ngIf="userFromApi">
+        <li>{{ userFromApi.firstName }} {{ userFromApi.lastName }}</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="special__chart">
+    <ngx-charts-line-chart
+      [view]="[700, 400]"
+      [results]="salesDates"
+      [gradient]="chartConfig.gradient"
+      [xAxis]="chartConfig.showXAxis"
+      [yAxis]="chartConfig.showYAxis"
+      [legend]="chartConfig.showLegend"
+      [showXAxisLabel]="chartConfig.showXAxisLabel"
+      [showYAxisLabel]="chartConfig.showYAxisLabel"
+      [xAxisLabel]="chartConfig.xAxisLabel"
+      [yAxisLabel]="chartConfig.yAxisLabel"
+      [autoScale]="chartConfig.autoScale"
+      [timeline]="chartConfig.timeline"
+      (select)="onSelect($event)"
+    >
+    </ngx-charts-line-chart>
+  </mat-card>
+
+  <form [formGroup]="datesForm" class="special__edit">
+    <mat-card>
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de inicio</mat-label>
+        <input matInput [matDatepicker]="dp" formControlName="startDate" />
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Lapso de días (número de días)</mat-label>
+        <input formControlName="days" matInput placeholder="Ex. 5" />
+      </mat-form-field>
+      <p>Periodo de tiempo: {{ startDate }} - {{ endDate }}</p>
+    </mat-card>
+
+    <div class="special__actions">
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        [disabled]="!fc['startDate'].value || !fc['days'].value"
+        (click)="showChartWithDates()"
+      >
+        Ver
+      </button>
+
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        (click)="orderByDefault()"
+      >
+        Por defecto
+      </button>
+    </div>
+  </form>
+</section>

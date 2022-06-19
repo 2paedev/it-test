@@ -14,6 +14,11 @@ const routes: Routes = [
       import('./modules/home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: APP_ROUTES.SPECIAL,
+    loadChildren: () =>
+      import('./modules/special/special.module').then((m) => m.SpecialModule),
+  },
+  {
     path: APP_ROUTES.ADMIN,
     loadChildren: () =>
       import('./modules/admin/admin.module').then((m) => m.AdminModule),

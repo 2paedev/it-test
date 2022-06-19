@@ -12,4 +12,80 @@
       </ul>
     </mat-card-content>
   </mat-card>
+
+  <mat-card class="home__chart">
+    <ngx-charts-bar-vertical
+      [view]="[1000, 400]"
+      [results]="sales"
+      [xAxisLabel]="'Products'"
+      [legendTitle]="'Product Sale Chart'"
+      [yAxisLabel]="'Sale'"
+      [legend]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      [gradient]="true"
+    >
+    </ngx-charts-bar-vertical>
+  </mat-card>
+
+  <form [formGroup]="editForm" class="home__edit">
+    <mat-card>
+      <mat-card-title>Añadir un elemento a la gráfica</mat-card-title>
+      <mat-card-content>
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input formControlName="name" matInput placeholder="Ex. Pizza" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Valor</mat-label>
+          <input formControlName="value" matInput placeholder="Ex. 312312" />
+        </mat-form-field>
+
+        <button
+          type="button"
+          class="home__btn-add"
+          mat-raised-button
+          color="primary"
+          (click)="addItem()"
+        >
+          Añadir
+        </button>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-title>Ordenar elementos</mat-card-title>
+      <mat-card-content class="home__actions">
+        <button
+          type="button"
+          mat-raised-button
+          color="primary"
+          (click)="orderByName()"
+        >
+          Ordenar por nombre
+        </button>
+
+        <button
+          type="button"
+          mat-raised-button
+          color="primary"
+          (click)="orderByValue()"
+        >
+          Ordenar por valor
+        </button>
+
+        <button
+          type="button"
+          mat-raised-button
+          color="primary"
+          (click)="orderByDefault()"
+        >
+          Ordenar por defecto
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </form>
 </section>

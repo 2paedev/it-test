@@ -4,6 +4,7 @@
     <span class="menu-spacer"></span>
     <div>
       <a mat-button [routerLink]="'/'"> Home </a>
+      <a mat-button [routerLink]="'/special'"> Special </a>
       <a mat-button [routerLink]="'/admin'" *ngIf="isAdmin"> Admin </a>
       <a mat-button (click)="logout()" *ngIf="user.id !== -1"> Logout </a>
     </div>

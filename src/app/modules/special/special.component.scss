@@ -1,6 +1,6 @@
 @import 'helpers/mixins';
 
-.home {
+.special {
   @include flexbox-align-direction(center, center, column);
 
   margin-top: 3rem;
@@ -22,11 +22,6 @@
 
     margin-top: 2rem;
 
-    mat-card{
-      margin-top: 1rem;
-      width: 100%;
-    }
-
     mat-form-field:first-child {
       margin-right: 1rem; 
     }
@@ -34,9 +29,8 @@
 
   &__actions {
     @include flexbox-align-direction(center, space-around);
-  }
 
-  &__btn-add {
-    margin-left: 1rem;
+    width: 100%;
+    margin-top: 2rem;
   }
 }
