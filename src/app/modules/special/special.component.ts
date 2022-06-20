@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { IApiError } from 'src/app/shared/models/errors.model';
+import { Role } from 'src/app/shared/models/role.model';
 import { SalesDates } from 'src/app/shared/models/sales.model';
 import { User } from 'src/app/shared/models/user.model';
 import { DataApiService } from 'src/app/shared/services/api/data-api.service';
@@ -45,6 +46,10 @@ export class SpecialComponent implements OnInit, OnDestroy {
     return this.datesForm.controls;
   }
 
+  get isAdmin() {
+    return this.user.token && this.user.role === Role.Admin;
+  }
+
   constructor(
     private userService: UserApiService,
     private authService: AuthService,
@@ -81,7 +86,6 @@ export class SpecialComponent implements OnInit, OnDestroy {
           this.salesDates = sales;
           this.salesDatesCopy = [...sales];
         },
-        complete: () => {},
         error: (error: IApiError) => {
           console.log(error);
         },
@@ -99,7 +103,6 @@ export class SpecialComponent implements OnInit, OnDestroy {
             next: (user: User) => {
               this.userFromApi = user;
             },
-            complete: () => {},
             error: (error: IApiError) => {
               console.log(error);
             },

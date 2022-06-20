@@ -8,7 +8,8 @@ export class DatesService {
     return num.toString().padStart(2, '0');
   }
 
-  public formatDate(date: any): any {
+  public formatDate(date: Date): string {
+    debugger;
     return [
       this.padTo2Digits(date.getDate()),
       this.padTo2Digits(date.getMonth() + 1),

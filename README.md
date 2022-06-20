@@ -1,27 +1,56 @@
 # ItTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+Prueba técnica de nivel de Angular.
 
-## Development server
+## Características
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 13
+- Angular Material
+- ngx-charts (gráficas)
+- Typescript
+- Unit testing con Karma/Jasmine
+- Datos de las gráficas cargados a través de un json.
+- Models, guards, interceptors.
 
-## Code scaffolding
+## Arrancar el proyecto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+# download the example or clone the repo from github
+git clone https://github.com/2paedev/it-test
 
-## Build
+# change directory
+cd it-test
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# install the repo with npm
+npm install
 
-## Running unit tests
+# start the development server
+npm run start
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usuarios
 
-## Running end-to-end tests
+Usuario normal -> user/user
+Usuario administrador -> admin/admin
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Rutas
 
-## Further help
+- /login: página para hacer el login, se pueden ver las instrucciones en esa página para hacer login. Tiene acceso todos los usuarios a esta página.
+- /home: a está página tiene acceso tanto "user" como "admin". Los dos usuarios pueden editar la gráfica y verla.
+- /special: en esta página tienen acceso "user" y "admin" y pueden visualizar la gráfica ambos pero solo puede editarla el usuario "admin".
+- /admin: página que solo es accesible por el usuario "admin"
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Gráficas
+
+- Gráfica /home: Se pueden añadir columnas a la gráfica y ordenar los elementos por nombre o por valor.
+- Gráfica /special: Gráfica con fechas donde se puede seleccionar una fecha de inicio + un lapso de días para visualizar esa parte de la gráfica.
+
+## Unit Testing
+
+Para ejecutar los test:
+
+```bash
+npm run test
+```
+
+Para ver la cobertura hay que abrir el navegador el fichero: "it-test/coverage/it-test/index.html"

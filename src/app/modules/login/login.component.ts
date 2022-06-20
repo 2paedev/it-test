@@ -58,7 +58,6 @@ export class LoginComponent implements OnInit {
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
           this.router.navigateByUrl(returnUrl);
         },
-        complete: () => {},
         error: (error: IApiError) => {
           this.error = error;
         },

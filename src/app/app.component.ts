@@ -19,7 +19,6 @@ export class AppComponent {
   constructor(private authService: AuthService) {
     this.authService.$user.subscribe({
       next: (newUserValue: User) => (this.user = newUserValue),
-      complete: () => {},
       error: (error: IApiError) => {
         console.log(error);
       },

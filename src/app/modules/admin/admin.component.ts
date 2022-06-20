@@ -22,7 +22,6 @@ export class AdminComponent implements OnInit {
         next: (users: Array<User>) => {
           this.users = users;
         },
-        complete: () => {},
         error: (error: IApiError) => {
           console.log(error);
         },

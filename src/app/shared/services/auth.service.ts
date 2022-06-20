@@ -21,7 +21,7 @@ const DEFAULT_USER = {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private _userSubject = new BehaviorSubject<User>(DEFAULT_USER);
-  public readonly $user: Observable<User>;
+  public $user: Observable<User>;
 
   constructor(private router: Router, private authApi: AuthApiService) {
     const userStorage = localStorage.getItem('user');

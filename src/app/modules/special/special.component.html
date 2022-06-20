@@ -32,7 +32,7 @@
     </ngx-charts-line-chart>
   </mat-card>
 
-  <form [formGroup]="datesForm" class="special__edit">
+  <form [formGroup]="datesForm" class="special__edit" *ngIf="isAdmin">
     <mat-card>
       <mat-form-field appearance="fill">
         <mat-label>Fecha de inicio</mat-label>

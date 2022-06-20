@@ -21,30 +21,18 @@ const materialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
 ];
-//const customComponents = [];
-
-//const customModules = [];
 
 const vendorModules = [NgxChartsModule];
 
 @NgModule({
-  //declarations: [...customComponents],
-  declarations: [],
   imports: [
     ...materialModules,
     ...vendorModules,
-    // ...customModules,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
   ],
-  exports: [
-    // ...customComponents,
-    ...materialModules,
-    ...vendorModules,
-    // ...customModules,
-    ReactiveFormsModule,
-  ],
+  exports: [...materialModules, ...vendorModules, ReactiveFormsModule],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
 })
 export class SharedModule {}

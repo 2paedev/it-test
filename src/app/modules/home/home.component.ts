@@ -62,7 +62,6 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.sales = sales;
           this.salesCopy = [...sales];
         },
-        complete: () => {},
         error: (error: IApiError) => {
           console.log(error);
         },
@@ -80,7 +79,6 @@ export class HomeComponent implements OnInit, OnDestroy {
             next: (user: User) => {
               this.userFromApi = user;
             },
-            complete: () => {},
             error: (error: IApiError) => {
               console.log(error);
             },
